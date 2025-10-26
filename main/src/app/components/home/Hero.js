@@ -3,17 +3,17 @@
 
 export default function Hero({ content = {} }) {
   return (
-    <section id="home" className="relative pt-32 pb-8 sm:pt-40 sm:pb-12 overflow-hidden">
+    <section id="home" className="relative pt-24 pb-6 sm:pt-28 sm:pb-8 overflow-hidden">
       {/* Yellow dots background for hero section */}
       <div className="absolute inset-0 z-0" style={{
         backgroundImage: `radial-gradient(circle, rgba(245, 158, 11, 0.4) 1px, transparent 1px)`,
         backgroundSize: '24px 24px'
       }}></div>
       <div className="container mx-auto px-6 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-12">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
           {content.hero?.title || "Generated $20 million in sales."}
         </h1>
-        <p className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white mb-16 max-w-4xl mx-auto">
+        <p className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white mb-8 max-w-4xl mx-auto">
           {content.hero?.content || "Training sales reps to make millions a year. Getting that promotion and new high-paying clients is easy."}
         </p>
         <a
