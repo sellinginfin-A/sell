@@ -109,7 +109,7 @@ export default function ProfileManager() {
 
   if (loading) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div className="bg-[#0f1729] rounded-lg shadow p-6 border border-white/20">
         <div className="animate-pulse">
           <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-1/4 mb-4"></div>
           <div className="space-y-3">
@@ -123,10 +123,10 @@ export default function ProfileManager() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+    <div className="bg-[#0f1729] rounded-lg shadow border border-white/20">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-600 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
+      <div className="px-6 py-4 border-b border-white/20 flex items-center justify-between">
+        <h2 className="text-xl font-semibold text-white flex items-center">
           <User className="mr-2" size={20} />
           Profile Settings
         </h2>
@@ -178,27 +178,27 @@ export default function ProfileManager() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Basic Information */}
           <div>
-            <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">Basic Information</h3>
+            <h3 className="text-lg font-medium mb-4 text-white">Basic Information</h3>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                <label className="block text-sm font-medium mb-1 text-white/80">
                   Email Address
                 </label>
-                <div className="flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                  <Mail size={16} className="text-gray-400 mr-2" />
-                  <span className="text-gray-900 dark:text-white">{user?.email}</span>
+                <div className="flex items-center px-3 py-2 border border-white/20 rounded-lg bg-white/10">
+                  <Mail size={16} className="text-white/60 mr-2" />
+                  <span className="text-white">{user?.email}</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                  <label className="block text-sm font-medium mb-1 text-white/80">
                     First Name
                   </label>
                   {!isEditing ? (
-                    <div className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                      <span>{formData.first_name || 'Not provided'}</span>
+                    <div className="px-3 py-2 border border-white/20 rounded-lg bg-[#0f1729]">
+                      <span className="text-white">{formData.first_name || 'Not provided'}</span>
                     </div>
                   ) : (
                     <input
@@ -206,17 +206,17 @@ export default function ProfileManager() {
                       name="first_name"
                       value={formData.first_name}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 !bg-white !text-gray-900"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                     />
                   )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                  <label className="block text-sm font-medium mb-1 text-white/80">
                     Last Name
                   </label>
                   {!isEditing ? (
-                    <div className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                      <span>{formData.last_name || 'Not provided'}</span>
+                    <div className="px-3 py-2 border border-white/20 rounded-lg bg-[#0f1729]">
+                      <span className="text-white">{formData.last_name || 'Not provided'}</span>
                     </div>
                   ) : (
                     <input
@@ -224,31 +224,31 @@ export default function ProfileManager() {
                       name="last_name"
                       value={formData.last_name}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 !bg-white !text-gray-900"
+                      className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                     />
                   )}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                <label className="block text-sm font-medium mb-1 text-white/80">
                   Phone Number
                 </label>
                 {!isEditing ? (
-                  <div className="flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                    <Phone size={16} className="text-gray-400 mr-2" />
-                    <span className="text-gray-900 dark:text-white">{formData.phone || 'Not provided'}</span>
+                  <div className="flex items-center px-3 py-2 border border-white/20 rounded-lg bg-white/10">
+                    <Phone size={16} className="text-white/60 mr-2" />
+                    <span className="text-white">{formData.phone || 'Not provided'}</span>
                   </div>
                 ) : (
                   <div className="relative">
-                    <Phone size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <Phone size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60" />
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+1 (555) 123-4567"
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 !bg-white !text-gray-900"
+                      className="w-full pl-10 pr-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                     />
                   </div>
                 )}
@@ -258,16 +258,16 @@ export default function ProfileManager() {
 
           {/* Professional Information */}
           <div>
-            <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">Professional Details</h3>
+            <h3 className="text-lg font-medium mb-4 text-white">Professional Details</h3>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                <label className="block text-sm font-medium mb-1 text-white/80">
                   Company
                 </label>
                 {!isEditing ? (
-                  <div className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                    <span>{formData.company || 'Not provided'}</span>
+                  <div className="px-3 py-2 border border-white/20 rounded-lg bg-[#0f1729]">
+                    <span className="text-white">{formData.company || 'Not provided'}</span>
                   </div>
                 ) : (
                   <input
@@ -275,18 +275,18 @@ export default function ProfileManager() {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                   />
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                <label className="block text-sm font-medium mb-1 text-white/80">
                   Job Title
                 </label>
                 {!isEditing ? (
-                  <div className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                    <span>{formData.job_title || 'Not provided'}</span>
+                  <div className="px-3 py-2 border border-white/20 rounded-lg bg-[#0f1729]">
+                    <span className="text-white">{formData.job_title || 'Not provided'}</span>
                   </div>
                 ) : (
                   <input
@@ -294,34 +294,34 @@ export default function ProfileManager() {
                     name="job_title"
                     value={formData.job_title}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                    className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                   />
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                <label className="block text-sm font-medium mb-1 text-white/80">
                   <Globe className="inline mr-1" size={16} />
                   Timezone
                 </label>
                 {!isEditing ? (
-                  <div className="flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700">
-                    <MapPin size={16} className="text-gray-400 mr-2" />
-                    <span className="text-gray-900 dark:text-white">{formData.timezone || 'Not set'}</span>
+                  <div className="flex items-center px-3 py-2 border border-white/20 rounded-lg bg-white/10">
+                    <MapPin size={16} className="text-white/60 mr-2" />
+                    <span className="text-white">{formData.timezone || 'Not set'}</span>
                   </div>
                 ) : (
                   <div className="relative">
-                    <MapPin size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <MapPin size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60" />
                     <select
                       name="timezone"
                       value={formData.timezone}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 !bg-white !text-gray-900"
+                      className="w-full pl-10 pr-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
                     >
                       {Object.entries(getTimezonesByRegion()).map(([region, timezones]) => (
-                        <optgroup key={region} label={region}>
+                        <optgroup key={region} label={region} className="text-white bg-[#0f1729]">
                           {timezones.map((tz) => (
-                            <option key={tz.value} value={tz.value}>
+                            <option key={tz.value} value={tz.value} className="text-white bg-[#0f1729]">
                               {tz.label}
                             </option>
                           ))}
@@ -374,12 +374,12 @@ export default function ProfileManager() {
 
         {/* Bio */}
         <div className="mt-6">
-          <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+          <label className="block text-sm font-medium mb-1 text-white/80">
             Bio
           </label>
           {!isEditing ? (
-            <div className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 min-h-[80px]">
-              <span>{formData.bio || 'No bio provided'}</span>
+            <div className="px-3 py-2 border border-white/20 rounded-lg bg-white/10 min-h-[80px]">
+              <span className="text-white">{formData.bio || 'No bio provided'}</span>
             </div>
           ) : (
             <textarea
@@ -388,7 +388,7 @@ export default function ProfileManager() {
               onChange={handleInputChange}
               rows={3}
               placeholder="Tell us a bit about yourself..."
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 !bg-white !text-gray-900"
+              className="w-full px-3 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/10 text-white placeholder-white/60"
             />
           )}
         </div>
@@ -405,7 +405,7 @@ export default function ProfileManager() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 dark:text-green-600 focus:ring-blue-500 dark:focus:ring-green-500 border-gray-300 dark:border-gray-600 rounded"
               />
-              <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
+              <span className="ml-2 text-sm text-white">
                 Email notifications for new bookings
               </span>
             </label>
@@ -418,7 +418,7 @@ export default function ProfileManager() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 dark:text-green-600 focus:ring-blue-500 dark:focus:ring-green-500 border-gray-300 dark:border-gray-600 rounded"
               />
-              <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
+              <span className="ml-2 text-sm text-white">
                 Email reminders for upcoming sessions
               </span>
             </label>
@@ -431,7 +431,7 @@ export default function ProfileManager() {
                 onChange={handleInputChange}
                 className="h-4 w-4 text-blue-600 dark:text-green-600 focus:ring-blue-500 dark:focus:ring-green-500 border-gray-300 dark:border-gray-600 rounded"
               />
-              <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
+              <span className="ml-2 text-sm text-white">
                 SMS reminders for upcoming sessions
               </span>
             </label>

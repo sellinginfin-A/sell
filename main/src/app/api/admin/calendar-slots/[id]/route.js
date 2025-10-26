@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { convertLocalToUTC } from '@/lib/timezone-utils';
 
 // Initialize Supabase with service role key for admin operations
 const supabaseAdmin = createClient(
@@ -12,7 +11,7 @@ export async function PUT(request, { params }) {
   try {
     const { id } = await params;
     const body = await request.json();
-    const { date, startTime, endTime, reason, awayStatus, userTimezone } = body;
+    const { date, startTime, endTime, reason, awayStatus } = body;
 
     if (!id) {
       return NextResponse.json({ 
@@ -21,16 +20,12 @@ export async function PUT(request, { params }) {
       }, { status: 400 });
     }
 
-    // Get user timezone from request or default to UTC
-    const timezone = userTimezone || 'UTC';
-
-    // Convert date and time to ISO timestamp format using proper timezone conversion
+    // Convert date and time to ISO timestamp format
     const startDateTimeLocal = `${date}T${startTime}:00`;
     const endDateTimeLocal = `${date}T${endTime}:00`;
     
-    // Convert to UTC using the user's timezone
-    const startDateTime = convertLocalToUTC(startDateTimeLocal, timezone);
-    const endDateTime = convertLocalToUTC(endDateTimeLocal, timezone);
+    const startDateTime = new Date(startDateTimeLocal);
+    const endDateTime = new Date(endDateTimeLocal);
 
     // Create the update data object
     const updateData = {

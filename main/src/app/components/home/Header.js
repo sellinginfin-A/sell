@@ -56,7 +56,7 @@ export default function Header() {
   const userInitial = profile?.first_name?.[0] || user?.email?.[0]?.toUpperCase() || 'U';
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f1729]/95 backdrop-blur-lg border-b border-blue-900/30">
       <div className="content-container container-padding">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex flex-col items-center group">
@@ -69,10 +69,10 @@ export default function Header() {
                 className="rounded-lg"
               />
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-xl text-blue-600 dark:text-orange-500 leading-tight">
+                <span className="font-heading font-bold text-xl text-orange-500 leading-tight">
                   Selling Infinity
                 </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400 leading-tight">
+                <span className="text-xs text-gray-400 leading-tight">
                   Sales Excellence Training
                 </span>
               </div>
@@ -83,18 +83,18 @@ export default function Header() {
             {isHomePage ? (
               // Homepage section links
               <>
-                <a href="#home" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Home</a>
-                <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Services</a>
-                <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">About</a>
-                <a href="#testimonials" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Testimonials</a>
+                <a href="#home" className="text-white/90 hover:text-purple-300 transition-colors">Home</a>
+                <a href="#services" className="text-white/90 hover:text-purple-300 transition-colors">Services</a>
+                <a href="#about" className="text-white/90 hover:text-purple-300 transition-colors">About</a>
+                <a href="#testimonials" className="text-white/90 hover:text-purple-300 transition-colors">Testimonials</a>
               </>
             ) : (
               // Regular page links
               <>
-                <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Home</Link>
-                <Link href="/#services" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Services</Link>
-                <Link href="/#about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">About</Link>
-                <Link href="/#testimonials" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors">Testimonials</Link>
+                <Link href="/" className="text-white/90 hover:text-purple-300 transition-colors">Home</Link>
+                <Link href="/#services" className="text-white/90 hover:text-purple-300 transition-colors">Services</Link>
+                <Link href="/#about" className="text-white/90 hover:text-purple-300 transition-colors">About</Link>
+                <Link href="/#testimonials" className="text-white/90 hover:text-purple-300 transition-colors">Testimonials</Link>
               </>
             )}
             
@@ -103,9 +103,9 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setShowUserMenu(!showUserMenu)}
-                  className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors"
+                  className="flex items-center space-x-2 text-white/90 hover:text-purple-300 transition-colors"
                 >
-                  <div className="w-8 h-8 bg-blue-600 dark:bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                  <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-[#0f1729] text-sm font-medium">
                     {userInitial}
                   </div>
                   <span className="text-sm">
@@ -117,11 +117,11 @@ export default function Header() {
                 </button>
                 
                 {showUserMenu && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
+                  <div className="absolute right-0 mt-2 w-48 bg-[#0f1729]/95 backdrop-blur-lg rounded-md shadow-lg border border-blue-900/30">
                     <div className="py-1">
                       <Link
                         href="/dashboard"
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block px-4 py-2 text-sm text-white/90 hover:bg-white/10"
                         onClick={() => setShowUserMenu(false)}
                       >
                         Dashboard
@@ -130,7 +130,7 @@ export default function Header() {
                       <button
                         onClick={handleSignOut}
                         disabled={signingOut}
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50"
+                        className="block w-full text-left px-4 py-2 text-sm text-white/90 hover:bg-white/10 disabled:opacity-50"
                       >
                         {signingOut ? 'Signing out...' : 'Sign Out'}
                       </button>
@@ -143,7 +143,7 @@ export default function Header() {
               <div className="flex items-center space-x-4">
                 <Link
                   href="/auth/login"
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-orange-400 transition-colors"
+                  className="text-white/90 hover:text-purple-300 transition-colors"
                 >
                   Sign In
                 </Link>
@@ -161,7 +161,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-white"
+              className="text-white/90 hover:text-purple-300"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -172,35 +172,35 @@ export default function Header() {
 
         {/* Mobile menu */}
         {showMobileMenu && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#0f1729]/95 backdrop-blur-lg border-b border-blue-900/30 shadow-lg">
             <div className="px-4 py-4 space-y-4">
               {isHomePage ? (
                 // Homepage section links
                 <>
                   <a 
                     href="#home" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Home
                   </a>
                   <a 
                     href="#services" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Services
                   </a>
                   <a 
                     href="#about" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     About
                   </a>
                   <a 
                     href="#testimonials" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Testimonials
@@ -211,28 +211,28 @@ export default function Header() {
                 <>
                   <Link 
                     href="/" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Home
                   </Link>
                   <Link 
                     href="/#services" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Services
                   </Link>
                   <Link 
                     href="/#about" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     About
                   </Link>
                   <Link 
                     href="/#testimonials" 
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Testimonials
@@ -245,16 +245,16 @@ export default function Header() {
               {user ? (
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 dark:bg-yellow-400 rounded-full flex items-center justify-center text-white dark:text-gray-900 text-sm font-medium">
+                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-[#0f1729] text-sm font-medium">
                       {userInitial}
                     </div>
-                    <span className="text-gray-700 dark:text-gray-300">
+                    <span className="text-white/90">
                       {displayName}
                     </span>
                   </div>
                   <Link
                     href="/dashboard"
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Dashboard
@@ -265,7 +265,7 @@ export default function Header() {
                       setShowMobileMenu(false);
                     }}
                     disabled={signingOut}
-                    className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors disabled:opacity-50"
+                        className="block w-full text-left text-white/90 hover:text-purple-300 transition-colors disabled:opacity-50"
                   >
                     {signingOut ? 'Signing out...' : 'Sign Out'}
                   </button>
@@ -274,7 +274,7 @@ export default function Header() {
                 <div className="space-y-3">
                   <Link
                     href="/auth/login"
-                    className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+                    className="block text-white/90 hover:text-purple-300 transition-colors"
                     onClick={() => setShowMobileMenu(false)}
                   >
                     Sign In

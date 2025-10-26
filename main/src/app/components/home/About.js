@@ -3,9 +3,9 @@
 
 export default function About({ content }) {
   return (
-    <section id="about" className="section-padding bg-gray-50 text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+    <section id="about" className="section-padding bg-[#0f1729] text-white">
       <div className="content-container container-padding">
-        <h2 className="text-section font-heading text-center mb-8">
+        <h2 className="text-section font-heading text-center mb-8 text-white">
           {content?.about?.title || "About Shrey"}
         </h2>
         <div className="flex flex-col lg:flex-row items-center gap-12 max-w-5xl mx-auto">
@@ -14,7 +14,7 @@ export default function About({ content }) {
             <img 
               src="/shrey.jpeg" 
               alt="Shrey - Sales Coach" 
-              className="w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-xl border-4 border-blue-200 dark:border-yellow-400"
+              className="w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-xl border-4 border-yellow-400"
               loading="lazy"
               width="320"
               height="320"
@@ -22,7 +22,7 @@ export default function About({ content }) {
           </div>
           
           {/* Content */}
-          <div className="flex-1 text-body space-y-6 text-gray-600 dark:text-gray-300">
+          <div className="flex-1 text-body space-y-6 text-white/80">
             {content?.about?.content ? (
               content.about.content.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>

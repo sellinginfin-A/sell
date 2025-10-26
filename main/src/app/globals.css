@@ -28,23 +28,19 @@
   }
   
   body {
-    background-color: var(--color-light-primary);
-    color: var(--color-light-text);
+    background-color: transparent;
+    color: #f9fafb;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .dark body {
-    background-color: var(--color-dark-primary);
-    color: var(--color-dark-text);
+    background-color: transparent;
+    color: #f9fafb;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
-    color: var(--color-light-text);
-  }
-  
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    color: var(--color-dark-text);
+    color: #f9fafb;
   }
 }
 
@@ -125,28 +121,22 @@
   
   /* Component: Card */
   .card-ui {
-    background-color: var(--color-light-primary);
-    border: 1px solid var(--color-light-border);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
     overflow: visible;
     transition: all 0.3s ease;
   }
   .card-ui:hover {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.15);
     transform: translateY(-0.25rem);
-  }
-  .dark .card-ui {
-    background-color: var(--color-dark-secondary);
-    border-color: var(--color-dark-border);
+    border-color: rgba(59, 130, 246, 0.2);
   }
   
   .card-popular-ui {
-    outline: 2px solid var(--color-light-accent);
+    outline: 2px solid #f59e0b;
     outline-offset: 2px;
-  }
-  .dark .card-popular-ui {
-    outline: 2px solid var(--color-dark-accent);
   }
   
   .popular-badge-ui {
@@ -154,17 +144,13 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-color: var(--color-light-accent);
-    color: white;
+    background-color: #f59e0b;
+    color: #0f1729;
     padding: 0.25rem 1rem;
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 700;
     z-index: 20;
-  }
-  .dark .popular-badge-ui {
-    background-color: var(--color-dark-accent);
-    color: var(--color-dark-primary);
   }
 
   /* Simple dot pattern background */
@@ -244,5 +230,23 @@
   
   .animate-scroll {
     animation: scroll linear infinite;
+  }
+
+  /* Dark background with dot pattern */
+  .dark-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: #0f1729;
+    background-image: 
+      radial-gradient(circle, rgba(245, 158, 11, 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: 0 0, 0 0;
+  }
+
+  /* Content overlay to ensure readability */
+  .content-overlay {
+    position: relative;
+    z-index: 1;
   }
 }

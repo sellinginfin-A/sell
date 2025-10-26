@@ -59,17 +59,11 @@ export default function Testimonials({ testimonials: staticTestimonials = [] }) 
   const infiniteTestimonials = allTestimonials.length > 0 ? [...allTestimonials, ...allTestimonials, ...allTestimonials] : [];
 
   return (
-    <section id="testimonials" className="relative section-padding bg-white text-gray-900 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-white"></div>
-      
-      {/* Subtle floating elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-100/15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+    <section id="testimonials" className="relative section-padding bg-[#0f1729] text-white overflow-hidden">
       
       <div className="relative content-container container-padding z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">What Our Clients Say</h2>
         </div>
         
         {loading ? (
@@ -95,17 +89,17 @@ export default function Testimonials({ testimonials: staticTestimonials = [] }) 
               >
                 {infiniteTestimonials.map((testimonial, index) => (
                   <div key={`${testimonial.id}-${index}`} className="w-96 flex-shrink-0 px-4">
-                    <div className="bg-gray-100 rounded-xl p-3 shadow-md hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="bg-white/5 rounded-xl p-3 shadow-md hover:shadow-lg transition-all duration-300 h-full border border-white/10 hover:border-yellow-400/30">
                       <div className="flex flex-col h-full">
                         {/* Review Title */}
                         {testimonial.title && (
-                          <h4 className="font-semibold text-gray-800 text-sm mb-2">
+                          <h4 className="font-semibold text-white text-sm mb-2">
                             {testimonial.title}
                           </h4>
                         )}
                         
                         {/* Testimonial Text */}
-                        <blockquote className="text-gray-600 text-sm mb-4 leading-relaxed">
+                        <blockquote className="text-white/80 text-sm mb-4 leading-relaxed">
                           "{testimonial.review_text || testimonial.content}"
                         </blockquote>
                         
@@ -138,11 +132,11 @@ export default function Testimonials({ testimonials: staticTestimonials = [] }) 
                               </div>
                             )}
                             <div>
-                              <div className="font-semibold text-gray-800 text-sm">
+                              <div className="font-semibold text-white text-sm">
                                 {testimonial.customer_name || testimonial.name}
                               </div>
                               {testimonial.position && testimonial.company && (
-                                <div className="text-xs text-gray-500">
+                                <div className="text-xs text-white/60">
                                   {testimonial.position} at {testimonial.company}
                                 </div>
                               )}

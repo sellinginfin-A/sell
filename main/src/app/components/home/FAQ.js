@@ -45,11 +45,11 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="section-padding bg-gray-50 dark:bg-gray-800">
+    <section id="faq" className="section-padding bg-[#0f1729] text-white">
       <div className="content-container container-padding">
         <div className="text-center mb-12">
-          <h2 className="text-section font-heading mb-4">Frequently Asked Questions</h2>
-          <p className="text-body text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-section font-heading mb-4 text-white">Frequently Asked Questions</h2>
+          <p className="text-body text-white/70 max-w-2xl mx-auto">
             Everything you need to know about our purchase process and services
           </p>
         </div>
@@ -58,17 +58,17 @@ export default function FAQ() {
           {faqData.map((faq) => (
             <div
               key={faq.id}
-              className="card-ui overflow-hidden transition-all duration-200 hover:shadow-lg"
+              className="bg-white/5 overflow-hidden transition-all duration-200 hover:shadow-lg border border-white/10 hover:border-yellow-400/30"
             >
               <button
                 onClick={() => toggleItem(faq.id)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-yellow-400"
+                className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-yellow-400"
               >
-                <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 pr-4">
+                <h3 className="font-semibold text-lg text-white pr-4">
                   {faq.question}
                 </h3>
                 <ChevronDown
-                  className={`flex-shrink-0 w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform duration-200 ${
+                  className={`flex-shrink-0 w-5 h-5 text-white/60 transition-transform duration-200 ${
                     openItem === faq.id ? 'rotate-180' : ''
                   }`}
                 />
@@ -81,8 +81,8 @@ export default function FAQ() {
                     : 'max-h-0 overflow-hidden opacity-0'
                 }`}
               >
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div className="border-t border-white/20 pt-4">
+                  <p className="text-white/80 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export default function FAQ() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+          <p className="text-white/70 mb-4">
             Still have questions?
           </p>
           <a

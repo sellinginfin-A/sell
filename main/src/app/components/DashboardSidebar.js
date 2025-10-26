@@ -84,9 +84,9 @@ export default function DashboardSidebar({
   };
 
   const sidebarContent = (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full overflow-y-auto">
       {/* Brand/Logo Section */}
-      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-6 border-b border-white/20">
         <Link 
           href="/"
           className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
@@ -96,10 +96,10 @@ export default function DashboardSidebar({
             <span className="text-white font-bold text-lg">SI</span>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-xl font-bold text-white">
               Selling Infinity
             </h2>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-white/60">
               Dashboard
             </p>
           </div>
@@ -107,19 +107,19 @@ export default function DashboardSidebar({
       </div>
 
       {/* User Profile Section */}
-      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-6 border-b border-white/20">
         <div className="flex items-center space-x-3">
           <button
             type="button"
             onClick={onAvatarClick}
             title="Click to add/change your photo"
-            className="relative group w-12 h-12 rounded-full overflow-hidden focus:outline-none border border-gray-300 dark:border-gray-600"
+            className="relative group w-12 h-12 rounded-full overflow-hidden focus:outline-none border border-white/30"
           >
             {profile?.avatar_url ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={profile.avatar_url} alt="Profile" className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full bg-blue-600 dark:bg-yellow-400 flex items-center justify-center text-white dark:text-gray-900 text-lg font-medium">
+              <div className="w-full h-full bg-yellow-400 flex items-center justify-center text-[#0f1729] text-lg font-medium">
                 {userInitial}
               </div>
             )}
@@ -129,10 +129,10 @@ export default function DashboardSidebar({
           </button>
           <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onAvatarSelected} />
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">
+            <h3 className="text-lg font-semibold text-white truncate">
               {displayName}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
+            <p className="text-sm text-white/70 truncate">
               {user?.email}
             </p>
           </div>
@@ -142,7 +142,7 @@ export default function DashboardSidebar({
       {/* Navigation Items */}
       <nav className="flex-1 p-4">
         <div className="space-y-2">
-          <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">
             Dashboard
           </h4>
           {navigationItems.map((item) => {
@@ -156,8 +156,8 @@ export default function DashboardSidebar({
                 }}
                 className={`w-full flex items-center px-3 py-2 rounded-lg font-medium transition-colors ${
                   activeTab === item.id
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ? 'bg-yellow-400 text-[#0f1729]'
+                    : 'text-white/80 hover:bg-white/10'
                 }`}
               >
                 <Icon size={18} className="mr-3" />
@@ -169,7 +169,7 @@ export default function DashboardSidebar({
 
         {/* Quick Actions */}
         <div className="mt-8 space-y-2">
-          <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">
             Quick Actions
           </h4>
           {quickActions.map((action, index) => {
@@ -181,12 +181,12 @@ export default function DashboardSidebar({
                   action.action();
                   setIsOpen(false);
                 }}
-                className="w-full flex items-start px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="w-full flex items-start px-3 py-2 rounded-lg text-white/80 hover:bg-white/10 transition-colors"
               >
                 <Icon size={18} className="mr-3 mt-0.5 flex-shrink-0" />
                 <div className="text-left">
                   <div className="font-medium">{action.label}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                  <div className="text-xs text-white/60">
                     {action.description}
                   </div>
                 </div>
@@ -197,12 +197,12 @@ export default function DashboardSidebar({
 
         {/* Home Link */}
         <div className="mt-8 space-y-2">
-          <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <h4 className="text-xs font-semibold text-white/60 uppercase tracking-wider">
             Navigation
           </h4>
           <Link
             href="/"
-            className="w-full flex items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="w-full flex items-center px-3 py-2 rounded-lg text-white/80 hover:bg-white/10 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <Home size={18} className="mr-3" />
@@ -212,14 +212,14 @@ export default function DashboardSidebar({
       </nav>
 
       {/* Sign Out Button */}
-      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+      <div className="p-4 border-t border-white/20">
         <button
           onClick={() => {
             onSignOut();
             setIsOpen(false);
           }}
           disabled={signingOut}
-          className="w-full flex items-center px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors disabled:opacity-50"
+          className="w-full flex items-center px-3 py-2 rounded-lg text-red-400 hover:bg-red-900/20 transition-colors disabled:opacity-50"
         >
           <LogOut size={18} className="mr-3" />
           {signingOut ? 'Signing out...' : 'Sign Out'}
@@ -233,7 +233,7 @@ export default function DashboardSidebar({
       {/* Mobile menu button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-[#0f1729]/95 backdrop-blur-lg shadow-lg border border-white/20"
       >
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
@@ -248,7 +248,7 @@ export default function DashboardSidebar({
 
       {/* Sidebar */}
       <div className={`
-        fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-800 shadow-xl border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out
+        fixed inset-y-0 left-0 z-50 w-80 h-screen bg-[#0f1729]/95 backdrop-blur-lg shadow-xl border-r border-white/20 transform transition-transform duration-300 ease-in-out
         lg:relative lg:translate-x-0 lg:w-80
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>

@@ -61,13 +61,13 @@ export default function Footer() {
       key: 'tiktok',
       name: 'TikTok',
       icon: <FontAwesomeIcon icon={faTiktok} className="text-xl" />,
-      hoverColor: 'hover:text-black dark:hover:text-white'
+      hoverColor: 'hover:text-cyan-500'
     },
     {
       key: 'threads',
       name: 'Threads',
       icon: <FontAwesomeIcon icon={faThreads} className="text-xl" />,
-      hoverColor: 'hover:text-gray-800 dark:hover:text-gray-200'
+      hoverColor: 'hover:text-white'
     },
     {
       key: 'facebook',
@@ -82,12 +82,12 @@ export default function Footer() {
       hoverColor: 'hover:text-blue-700 dark:hover:text-blue-600'
     }
   ]; return (
-    <footer id="contact" className="section-padding border-t border-gray-200 bg-gray-50 text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+    <footer id="contact" className="section-padding bg-[#0f1729] border-t border-white/20 text-white">
       <div className="content-container container-padding">
         <div className="text-center">
           {/* Social Media Links */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Follow Selling Infinity</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Follow Selling Infinity</h3>
             <div className="flex justify-center space-x-6 flex-wrap gap-2">
               {loading ? (
                 <div className="flex space-x-6">
@@ -104,7 +104,7 @@ export default function Footer() {
                       href={socialLinks[platform.key]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center space-x-2 text-gray-600 dark:text-gray-300 ${platform.hoverColor} transition-colors`}
+                      className={`flex items-center space-x-2 text-white/70 ${platform.hoverColor} transition-colors`}
                     >
                       {platform.icon}
                       <span>{platform.name}</span>
@@ -114,11 +114,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-white/60">
             © 2025 Selling Infinity
           </p>
           <div className="mt-4">
-            <Calendar size={24} className="text-blue-600 dark:text-yellow-400 mx-auto" />
+            <Calendar size={24} className="text-yellow-400 mx-auto" />
           </div>
         </div>
       </div>

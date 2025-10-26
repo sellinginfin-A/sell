@@ -5,7 +5,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from './context/AuthContext';
 import { useToast } from './context/ToastContext';
-import { ThemeSwitcher } from './components/ThemeSwitcher';
 import Header from './components/home/Header';
 import Hero from './components/home/Hero';
 import About from './components/home/About';
@@ -84,39 +83,42 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 dark:border-yellow-400"></div>
+      <div className="relative min-h-screen">
+        <div className="dark-background"></div>
+        <div className="flex items-center justify-center min-h-screen relative z-10">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-yellow-400"></div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Theme Switcher - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeSwitcher />
+    <div className="relative min-h-screen">
+      {/* Dark Background with Dot Pattern */}
+      <div className="dark-background"></div>
+      
+      <div className="content-overlay">
+        <Header />
+        
+        <main>
+          {/* Hero Section */}
+          <Hero />
+          
+          {/* Pricing Section */}
+          <Pricing products={products} onPurchaseNow={handlePurchase} />
+          
+          {/* About Section */}
+          <About />
+          
+          {/* Testimonials Section */}
+          <Testimonials testimonials={testimonials} />
+          
+          {/* FAQ Section */}
+          <FAQ />
+        </main>
+        
+        <Footer />
       </div>
-      
-      <Header />
-      
-      <main>
-        {/* Hero Section */}
-        <Hero />
-        
-        {/* Pricing Section */}
-        <Pricing products={products} onPurchaseNow={handlePurchase} />
-        
-        {/* About Section */}
-        <About />
-        
-        {/* Testimonials Section */}
-        <Testimonials testimonials={testimonials} />
-        
-        {/* FAQ Section */}
-        <FAQ />
-      </main>
-      
-      <Footer />
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Pricing({ products, onPurchaseNow }) {
   const formatPrice = (cents) => `$${(cents / 100).toFixed(0)}`;
 
   const getProductIcon = (type) => {
-    const iconProps = { size: 40, className: "mx-auto text-yellow-500 dark:text-yellow-400" };
+    const iconProps = { size: 40, className: "mx-auto text-yellow-400" };
     switch (type) {
       case 'pdf': return <FileText {...iconProps} />;
       case 'coaching_individual':
@@ -54,22 +54,16 @@ export default function Pricing({ products, onPurchaseNow }) {
   };
 
   return (
-    <section id="services" className="relative section-padding bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-800/30 dark:to-gray-900"></div>
-      
-      {/* Subtle floating elements */}
-      <div className="absolute top-10 right-10 w-24 h-24 bg-blue-100/20 dark:bg-blue-900/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-10 left-10 w-32 h-32 bg-purple-100/15 dark:bg-purple-900/8 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+    <section id="services" className="relative section-padding bg-[#0f1729] overflow-hidden">
       
       <div className="relative content-container container-padding z-10">
         <div className="text-center mb-12">
-          <h2 className="text-section font-heading mb-4">Pricing Plans</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          <h2 className="text-section font-heading mb-4 text-white">Pricing Plans</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full"></div>
         </div>
         
         {products.length === 0 ? (
-          <div className="text-center text-gray-500 dark:text-gray-400">
+          <div className="text-center text-white/60">
             No pricing plans available at the moment.
           </div>
         ) : (
@@ -85,24 +79,24 @@ export default function Pricing({ products, onPurchaseNow }) {
                 
                 <div className="text-center p-6 relative">
                   {/* Subtle background glow on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/30 group-hover:to-purple-50/20 dark:group-hover:from-blue-900/20 dark:group-hover:to-purple-900/10 rounded-lg transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/10 rounded-lg transition-all duration-300"></div>
                   
                   <div className="relative z-10 mb-4">
-                    <div className="inline-block p-3 rounded-full bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 group-hover:scale-110 transition-transform duration-300">
+                    <div className="inline-block p-3 rounded-full bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
                       {getProductIcon(product.type)}
                     </div>
                   </div>
-                  <h3 className="font-heading font-semibold text-2xl mb-2 text-gray-900 dark:text-white">
+                  <h3 className="font-heading font-semibold text-2xl mb-2 text-white">
                     {product.name}
                   </h3>
-                  <div className="text-4xl font-bold text-blue-600 dark:text-yellow-400 mb-4">
+                  <div className="text-4xl font-bold text-yellow-400 mb-4">
                     {formatPrice(product.price)}
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 min-h-[48px]">
+                  <p className="text-white/80 mb-6 min-h-[48px]">
                     {product.description}
                   </p>
                   
-                  <ul className="text-sm space-y-3 mb-8 text-left text-gray-600 dark:text-gray-300">
+                  <ul className="text-sm space-y-3 mb-8 text-left text-white/70">
                     {(() => {
                       // Handle different feature formats: array, string, or empty
                       let features = [];
@@ -114,15 +108,15 @@ export default function Pricing({ products, onPurchaseNow }) {
                       
                       return features.map((feature, index) => (
                         <li key={index} className="flex items-start">
-                          <Star size={16} className="mr-2 mt-1 text-blue-600 dark:text-yellow-400 flex-shrink-0" />
+                          <Star size={16} className="mr-2 mt-1 text-yellow-400 flex-shrink-0 fill-yellow-400" />
                           <span>{feature}</span>
                         </li>
                       ));
                     })()}
                   </ul>
                   
-                  <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
+                  <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/10">
+                    <p className="text-xs text-white/90 text-center">
                       <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                       <strong>No account required!</strong> Purchase now, create password after payment
                     </p>

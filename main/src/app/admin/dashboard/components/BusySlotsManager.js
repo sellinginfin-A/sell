@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useToast } from '@/app/context/ToastContext';
-import { useTimezone } from '@/app/context/TimezoneContext';
 import { Calendar, Clock, Edit, Trash2, Save, Mail } from 'lucide-react';
 
 const BusySlotsManager = () => {
   const { success, error: showError, warning, info, showConfirm } = useToast();
-  const { userTimezone } = useTimezone();
   const [busySlots, setBusySlots] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [editingSlot, setEditingSlot] = useState(null);
@@ -39,8 +37,7 @@ const BusySlotsManager = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...updatedData,
-          sendEmail: sendEmailNotification,
-          userTimezone: userTimezone
+          sendEmail: sendEmailNotification
         })
       });
 
@@ -112,20 +109,11 @@ const BusySlotsManager = () => {
   };
 
   const EditSlotForm = ({ slot, onSave, onCancel }) => {
-    // Convert UTC times to local datetime-local format for editing
-    const formatForDateTimeLocal = (utcTime) => {
-      if (!utcTime) return '';
-      const date = new Date(utcTime);
-      // Convert to local timezone for editing
-      const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
-      return localDate.toISOString().slice(0, 16);
-    };
-
     const [formData, setFormData] = useState({
       title: slot.title || '',
       description: slot.description || '',
-      start_time: formatForDateTimeLocal(slot.start_time),
-      end_time: formatForDateTimeLocal(slot.end_time),
+      start_time: slot.start_time ? slot.start_time.slice(0, 16) : '',
+      end_time: slot.end_time ? slot.end_time.slice(0, 16) : '',
       awayStatus: slot.away_status || false
     });
 
@@ -221,20 +209,7 @@ const BusySlotsManager = () => {
               Cancel
             </button>
             <button
-              onClick={() => {
-                // Convert datetime-local values to the format expected by the API
-                const startDateTime = new Date(formData.start_time);
-                const endDateTime = new Date(formData.end_time);
-                
-                const updateData = {
-                  ...formData,
-                  date: startDateTime.toISOString().split('T')[0],
-                  startTime: startDateTime.toTimeString().slice(0, 5),
-                  endTime: endDateTime.toTimeString().slice(0, 5)
-                };
-                
-                onSave(slot.id, updateData);
-              }}
+              onClick={() => onSave(slot.id, formData)}
               className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center space-x-2"
             >
               <Save className="h-4 w-4" />

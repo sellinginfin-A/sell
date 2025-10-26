@@ -110,8 +110,7 @@ export default function AdminCalendar() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'mark_busy',
-          ...slotData,
-          userTimezone: userTimezone
+          ...slotData
         })
       });
 

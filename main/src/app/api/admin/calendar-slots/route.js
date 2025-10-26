@@ -122,28 +122,23 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { action, date, startTime, endTime, reason, awayStatus, userTimezone } = body;
+    const { action, date, startTime, endTime, reason, awayStatus } = body;
 
     if (action === 'mark_busy') {
       // Insert a new blocked event in calendar_events table
-      // Convert date and time to ISO timestamp format using user's timezone
-      console.log('Creating busy slot with:', { date, startTime, endTime, reason, awayStatus, userTimezone });
+      // Convert date and time to ISO timestamp format using local timezone
+      console.log('Creating busy slot with:', { date, startTime, endTime, reason, awayStatus });
       
-      // Get user timezone from request or default to UTC
-      const timezone = userTimezone || 'UTC';
-      
-      // Create local datetime strings and convert to UTC for storage using proper timezone conversion
+      // Create local datetime strings and convert to UTC for storage
       const startDateTimeLocal = `${date}T${startTime}:00`;
       const endDateTimeLocal = `${date}T${endTime}:00`;
       
-      // Convert to UTC using the user's timezone
-      const startDateTime = convertLocalToUTC(startDateTimeLocal, timezone);
-      const endDateTime = convertLocalToUTC(endDateTimeLocal, timezone);
+      const startDateTime = new Date(startDateTimeLocal);
+      const endDateTime = new Date(endDateTimeLocal);
       
       console.log('Local datetime strings:', { 
         startLocal: startDateTimeLocal, 
-        endLocal: endDateTimeLocal,
-        timezone: timezone
+        endLocal: endDateTimeLocal 
       });
       console.log('Converted to UTC:', { 
         startDateTime: startDateTime.toISOString(), 
