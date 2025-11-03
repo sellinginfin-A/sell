@@ -200,7 +200,7 @@ export default function BookingModal({ isOpen, onClose, product, onBookingComple
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto text-gray-900 dark:text-white">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -248,7 +248,7 @@ export default function BookingModal({ isOpen, onClose, product, onBookingComple
                   className={`p-3 rounded-lg border text-center transition-colors ${
                     selectedDate === day.date
                       ? 'bg-blue-600 text-white border-blue-600'
-                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-900 dark:text-white'
                   }`}
                 >
                   <div className="text-sm font-medium">{day.dayName}</div>
@@ -278,7 +278,7 @@ export default function BookingModal({ isOpen, onClose, product, onBookingComple
                       className={`p-3 rounded-lg border text-center transition-colors ${
                         selectedTime === slot.time && reservationId
                           ? 'bg-green-600 text-white border-green-600'
-                          : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50'
+                          : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 text-gray-900 dark:text-white'
                       }`}
                     >
                       <div className="font-medium">{slot.time}</div>
